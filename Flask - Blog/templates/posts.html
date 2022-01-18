@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    All Posts
+{% endblock %}
+
+
+
+{% block body %}
+    <hr>
+    <div>
+        <h1 style="display: inline;">All Posts</h1>
+        <a style="display: inline; float: right" class="btn btn-success float" href="/addPost"> + New Post</a>
+    </div>
+    
+    <hr>
+    <!-- <form action="/posts" method='POST'>
+        <label for="content" class="form-label">Title</label>
+        <input class="form-control" aria-label="title" type="text" name="title" id="title">
+        <label for="content" class="form-label">Author</label>
+        <input type="text"  aria-label="author" class="form-control" name="author" id="author">
+        <label for="content" class="form-label">Description</label>
+        <textarea class="form-control" id="content" name ="content" rows="3"></textarea>
+        <br>
+        <input type="submit" class="btn btn-success" value = "Post">
+ 
+    </form> -->
+    <hr>
+    {% for item in posts%}
+        <h4>Title : {{item.title}}</h4>
+        <small>Created By Author Named : {{item.author}} on {{item.date_posted}}</small>
+        <p style="white-space: pre-wrap;">{{item.content}}</p>
+        <br>
+        <a class="btn btn-primary" href="/posts/edit/{{item.id}}">Edit</a>
+        <a class="btn btn-danger" href="/posts/delete/{{item.id}}">Delete</a>
+
+        <hr>
+    {%endfor%}
+{% endblock %}

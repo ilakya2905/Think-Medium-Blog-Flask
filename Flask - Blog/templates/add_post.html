@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    Add Posts
+{% endblock %}
+
+
+
+{% block body %}
+    <hr>
+    <h1>Add Post</h1>
+    <hr>
+    <form action="/posts" method='POST'>
+        <label for="content" class="form-label">Title</label>
+        <input class="form-control" aria-label="title" type="text" name="title" id="title">
+        <label for="content" class="form-label">Author</label>
+        <input type="text"  aria-label="author" class="form-control" name="author" id="author">
+        <label for="content" class="form-label">Description</label>
+        <textarea class="form-control" id="content" name ="content" rows="3"></textarea>
+        <br>
+        <input type="submit" class="btn btn-success" value = "Post">
+ 
+    </form>
+    <hr>
+    
+{% endblock %}
